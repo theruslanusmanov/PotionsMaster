@@ -31,11 +31,12 @@
 /// THE SOFTWARE.
 
 import SwiftUI
+import RealmSwift
 
-class Ingredient: ObservableObject, Identifiable {
+class Ingredient: Object, ObjectKeyIdentifiable {
   let id = UUID()
-  @Published var title = ""
-  @Published var notes = ""
-  @Published var quantity = 1
-  @Published var bought = false
+  @Persisted var title = ""
+  @Persisted var notes = ""
+  @Persisted var quantity = 1
+  @Persisted var bought = false
 }
