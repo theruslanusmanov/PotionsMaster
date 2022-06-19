@@ -34,7 +34,7 @@ import SwiftUI
 import RealmSwift
 
 class Ingredient: Object, ObjectKeyIdentifiable {
-  let id = UUID()
+  @Persisted(primaryKey: true) var id: ObjectId
   @Persisted var title = ""
   @Persisted var notes = ""
   @Persisted var quantity = 1
