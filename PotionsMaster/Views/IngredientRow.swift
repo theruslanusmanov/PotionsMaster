@@ -65,6 +65,7 @@ struct IngredientRow: View {
         Image(systemName: buttonImage)
           .resizable()
           .frame(width: 24, height: 24)
+          .foregroundColor(ingredient.color)
       }
     }
   }
