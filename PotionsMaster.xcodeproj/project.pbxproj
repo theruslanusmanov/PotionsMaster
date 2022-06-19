@@ -15,6 +15,7 @@
 		44660016285DB9A500FEE06B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 44660015285DB9A500FEE06B /* Realm */; };
 		44660018285DB9A500FEE06B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 44660017285DB9A500FEE06B /* RealmSwift */; };
 		4466001A285F2DFB00FEE06B /* ColorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44660019285F2DFB00FEE06B /* ColorOptions.swift */; };
+		4466001C285F33CC00FEE06B /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4466001B285F33CC00FEE06B /* RealmMigrator.swift */; };
 		8496FA8727D71671009562D6 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496FA8627D71671009562D6 /* Ingredient.swift */; };
 		8496FA8927D71685009562D6 /* IngredientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496FA8827D71685009562D6 /* IngredientMock.swift */; };
 		8496FA8E27D717F1009562D6 /* IngredientFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496FA8D27D717F1009562D6 /* IngredientFormView.swift */; };
@@ -31,6 +32,7 @@
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44660019285F2DFB00FEE06B /* ColorOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOptions.swift; sourceTree = "<group>"; };
+		4466001B285F33CC00FEE06B /* RealmMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrator.swift; sourceTree = "<group>"; };
 		8496FA8627D71671009562D6 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		8496FA8827D71685009562D6 /* IngredientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientMock.swift; sourceTree = "<group>"; };
 		8496FA8D27D717F1009562D6 /* IngredientFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientFormView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				8496FA8627D71671009562D6 /* Ingredient.swift */,
 				8496FA8827D71685009562D6 /* IngredientMock.swift */,
 				44660019285F2DFB00FEE06B /* ColorOptions.swift */,
+				4466001B285F33CC00FEE06B /* RealmMigrator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				4466001A285F2DFB00FEE06B /* ColorOptions.swift in Sources */,
 				8496FA8727D71671009562D6 /* Ingredient.swift in Sources */,
+				4466001C285F33CC00FEE06B /* RealmMigrator.swift in Sources */,
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
 				8496FA8E27D717F1009562D6 /* IngredientFormView.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,

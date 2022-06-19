@@ -30,71 +30,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
 import RealmSwift
 
-struct IngredientFormView: View {
-  @Environment(\.realm) var realm
-  @Environment(\.dismiss) var dismiss
-
-  @ObservedRealmObject var ingredient: Ingredient
-
-  let quantityOptions = [1, 2, 3, 4, 5]
-  let colorOptions = ColorOptions.allCases
-
-  var isUpdating: Bool {
-    ingredient.realm != nil
-  }
-
-  var body: some View {
-    NavigationView {
-      Form {
-        TextField("Title", text: $ingredient.title)
-        Picker("Quantity", selection: $ingredient.quantity) {
-          ForEach(quantityOptions, id: \.self) { option in
-            Text("\(option)")
-          }
-        }
-        Picker("Color", selection: $ingredient.colorOption) {
-          ForEach(colorOptions, id: \.self) { option in
-            Text(option.title)
-          }
-        }
-        Section("Notes📝") {
-          TextEditor(text: $ingredient.notes)
-        }
-      }
-      .navigationTitle("Ingredient Form")
-      .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .confirmationAction) {
-          Button(isUpdating ? "Done" : "Save") {
-            if isUpdating {
-              dismiss()
-            } else {
-              save()
-            }
-          }
-          .disabled(ingredient.title.isEmpty)
-        }
+enum RealmMigrator {
+  static private func migrationBlock(
+    migration: Migration,
+    oldSchemaVersion: UInt64
+  ) {
+    if oldSchemaVersion < 1 {
+      migration.enumerateObjects(ofType: Ingredient.className()) { _, newObject in
+        newObject?["colorOption"] = ColorOptions.green
       }
     }
   }
-}
-
-// MARK: - Actions
-extension IngredientFormView {
-  func save() {
-    try? realm.write {
-      realm.add(ingredient)
-    }
-    dismiss()
-  }
-}
-
-struct IngredientFormView_Previews: PreviewProvider {
-  static var previews: some View {
-    IngredientFormView(ingredient: Ingredient())
-    IngredientFormView(ingredient: IngredientMock.ingredientsMock[0])
+  
+  static var configuration: Realm.Configuration {
+    Realm.Configuration(schemaVersion: 1, migrationBlock: migrationBlock)
   }
 }
